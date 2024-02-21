@@ -1,0 +1,553 @@
+{
+	"info": {
+		"_postman_id": "a7b79c48-ac2f-4f13-9aa3-7b2bd7f2ee30",
+		"name": "KCDragonBallApi",
+		"description": "APi para el desarrollo de los diferentes modulos del Bootcamp Mobile de Keepcoding.\n\nCualquier nueva funcionalidad que se quiera solicitar deberá acudir al Coordinador del bootcamp Mobile.\n\nKeepcoding 2022",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registro Usuarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Jose Luis\",\n    \"apell1\" : \"Bustos\",\n    \"apell2\" : \"Esteban\",\n    \"email\" : \"bejl@pruebmail.es\",\n    \"password\" : \"abcdef\",\n    \"bootcamp\" : \"6213eefa-eb3e-4386-8a36-c290dc31f8c2\",\n    \"photo\" : \"https://media-exp1.licdn.com/dms/image/C4E03AQHLnB5e8bcFBA/profile-displayphoto-shrink_800_800/0/1642765623814?e=1650499200&v=beta&t=-hl8i-nYg7N6bdnm3QW89NuE9O-IRb3sdfZ1-CMeHkk\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/register/developer",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"register",
+						"developer"
+					]
+				},
+				"description": "Registro de un Developer en el Servidor. De esta forma se registra el usuario en el API. El usuario será el mail.\n\nSe hace un control de duplicidad en el servidor por el mail."
+			},
+			"response": []
+		},
+		{
+			"name": "Login JWT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Token Login\", () => {",
+							"    const responseJson = pm.response.text();",
+							"    pm.environment.set(\"token\", responseJson);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "bejl@keepcoding.es",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/auth/login",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				},
+				"description": "Login en el API, mediante usuario (mail) y la clave indicada."
+			},
+			"response": []
+		},
+		{
+			"name": "Test basico JWT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/jwt/test",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"jwt",
+						"test"
+					]
+				},
+				"description": "Solo es un test de funcionamiento del API, no tiene funcionalidad"
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de Heroes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Goku\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/heros/all",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"heros",
+						"all"
+					]
+				},
+				"description": "Registro de un Developer en el Servidor."
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de Developers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/data/developers",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"data",
+						"developers"
+					]
+				},
+				"description": "Devuelve todos los developers (usuarios) registrados en el servidor.\n\nNo hay ningún tipo de filtro."
+			},
+			"response": []
+		},
+		{
+			"name": "Developer Connected",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/data/connected",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"data",
+						"connected"
+					]
+				},
+				"description": "Información del usuario conectado a través del Token"
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de Localizaciones de un Heroe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\" : \"D13A40E5-4418-4223-9CE6-D2F9A28EBE94\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/heros/locations",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"heros",
+						"locations"
+					]
+				},
+				"description": "Localizaciones de geolocalización donde se ha visto un heroe. Esto está para que se pueda trabajar con Mapas y localización.\n\nEn el body se envia el id del heroe que es un UUID."
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de Transformaciones de un Hero",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\" : \"D13A40E5-4418-4223-9CE6-D2F9A28EBE94\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/heros/tranformations",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"heros",
+						"tranformations"
+					]
+				},
+				"description": "Devuelve las transformaciones (si tiene) del heroe que se le pasa por el body en la request. Por ejemplo Goku tiene muchas transformaciones."
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de BootCamps",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/data/bootcamps",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"data",
+						"bootcamps"
+					]
+				},
+				"description": "Devuelve la lista de todos los bootcamps que existen en la base de datos.\n\nEste endpoint no tiene seguridad porque debe poder ser llamado desde el registro del developer, cuando no tiene login realizado."
+			},
+			"response": []
+		},
+		{
+			"name": "Crear nuevo Heroe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Quake (Daisy Johnson)\",\n    \"description\" : \"No description\",\n    \"photo\" : \"http://i.annihil.us/u/prod/marvel/i/mg/b/c0/553a9abceb412/portrait_incredible.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/heros/create",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"heros",
+						"create"
+					]
+				},
+				"description": "Nos permite crear nuevos Heroes."
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir localizacion Heroe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"D13A40E5-4418-4223-9CE6-D2F9A28EBE94\",\n    \"latitud\" : \"139.8202084625344\",\n    \"longitud\":\"35.71867899343361\"\n   \n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/heros/location",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"heros",
+						"location"
+					]
+				},
+				"description": "Nos pemite añadir localizaciones (geolocalizacion) donde se ha visto al heroe. Nos permite trabajar con Mapas"
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir Transformación Heroe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"D13A40E5-4418-4223-9CE6-D2F9A28EBE94\",\n    \"name\":\"1. Oozaru – Gran Mono\",\n    \"description\" : \"Cómo todos los Saiyans con cola, Goku es capaz de convertirse en un mono gigante si mira fijamente a la luna llena. Así es como Goku cuando era un infante liberaba todo su potencial a cambio de perder todo el raciocinio y transformarse en una auténtica bestia. Es por ello que sus amigos optan por cortarle la cola para que no ocurran desgracias, ya que Goku mató a su propio abuelo adoptivo Son Gohan estando en este estado. Después de beber el Agua Ultra Divina, Goku liberó todo su potencial sin necesidad de volver a convertirse en Oozaru\",\n    \"photo\" : \"https://areajugones.sport.es/wp-content/uploads/2021/05/ozarru.jpg.webp\"\n}\n\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/heros/tranformation",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"heros",
+						"tranformation"
+					]
+				},
+				"description": "Nos permite añadir transformaciones de un heroe durante todos los años de las diferentes series, comics y peliculas de Dragon Ball"
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una localizacion de un heroe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\" : \"11628A6D-7D5E-4980-92BA-3D6BFE749D8A\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/heros/location",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"heros",
+						"location"
+					]
+				},
+				"description": "Permite eliminar una localización de un heroe. Para ello se le pasa el identificador de la localizacion."
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar transformación de un Heroe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\" : \"2981E566-89DA-4287-A899-01AB52D96102\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/heros/tranformation",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"heros",
+						"tranformation"
+					]
+				},
+				"description": "Permite eliminar una transformación de un Heroe. Para ello se le pasa el Id en el body"
+			},
+			"response": []
+		},
+		{
+			"name": "Marcar Hero como Me gusta",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"hero\" : \"CE5827A7-7A94-4305-BBF4-E40E26A32154\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/data/herolike",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"data",
+						"herolike"
+					]
+				},
+				"description": "Permite marcar a un heroe como \"me gusta\" por parte de un usuario.\n\nCuando se marca como me gusta, al solicitar la lista de heroes, en la response vendrá un campo que vendrá personalizado segun el usuario conectado.\n\nPermite añadir a las apps acciones de Me gusta.\n\nSi se le llama mas de una vez a este endpoint para el mismo usuario y heroe, marcará lo contrario que haya en base de datos, haciendo un Toogle de este valor."
+			},
+			"response": []
+		}
+	]
+}
