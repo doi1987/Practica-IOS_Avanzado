@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F140115B-E3E7-4086-9D41-5479D4961B8A"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DDF25497-1351-4BB8-A2E5-0B9602E2C021"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Practica_IOS_Avanzado/Data/ApiProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "getLocationsForHeroWith(id:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DDF25497-1351-4BB8-A2E5-0B9602E2C021 - dd0112b3ade5ba3f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Practica_IOS_Avanzado.ApiProvider.getLocationsForHeroWith(id: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;Practica_IOS_Avanzado.Location&gt;, Practica_IOS_Avanzado.GokuAndFriendsError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Practica_IOS_Avanzado"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/David/Desktop/Projects/Practica-IOS_Avanzado/Practica_IOS_Avanzado/Practica_IOS_Avanzado/Data/ApiProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "592">
+               </Location>
+               <Location
+                  uuid = "DDF25497-1351-4BB8-A2E5-0B9602E2C021 - d18ac6b823b76df1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Practica_IOS_Avanzado.ApiProvider.getLocationsForHeroWith(id: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;Practica_IOS_Avanzado.Location&gt;, Practica_IOS_Avanzado.KCDragonBallError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Practica_IOS_Avanzado"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/David/Desktop/Projects/Practica-IOS_Avanzado/Practica_IOS_Avanzado/Practica_IOS_Avanzado/Data/ApiProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "592">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
