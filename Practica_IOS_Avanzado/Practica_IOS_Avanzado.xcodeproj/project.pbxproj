@@ -67,6 +67,9 @@
 		63130CBD2B8E07CD00FCC11D /* HeroDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CBA2B8E07CD00FCC11D /* HeroDetailViewModel.swift */; };
 		63130CC02B8E094200FCC11D /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63130CBF2B8E094200FCC11D /* KeychainSwift */; };
 		63130CC32B8E09CF00FCC11D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 63130CC22B8E09CF00FCC11D /* Kingfisher */; };
+		63130CC52B9107CA00FCC11D /* LoginStatusLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CC42B9107CA00FCC11D /* LoginStatusLoad.swift */; };
+		63130CC62B9107CA00FCC11D /* LoginStatusLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CC42B9107CA00FCC11D /* LoginStatusLoad.swift */; };
+		63130CC72B9107CA00FCC11D /* LoginStatusLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CC42B9107CA00FCC11D /* LoginStatusLoad.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +118,7 @@
 		63130CB22B8E07AB00FCC11D /* HeroAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAnnotation.swift; sourceTree = "<group>"; };
 		63130CB62B8E07B800FCC11D /* HeroAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAnnotationView.swift; sourceTree = "<group>"; };
 		63130CBA2B8E07CD00FCC11D /* HeroDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewModel.swift; sourceTree = "<group>"; };
+		63130CC42B9107CA00FCC11D /* LoginStatusLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatusLoad.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,7 @@
 				63130C7F2B8E066900FCC11D /* Hero.swift */,
 				63130C832B8E067900FCC11D /* Location.swift */,
 				63130C872B8E068400FCC11D /* Transformation.swift */,
+				63130CC42B9107CA00FCC11D /* LoginStatusLoad.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 				63130C882B8E068400FCC11D /* Transformation.swift in Sources */,
 				63130C842B8E067900FCC11D /* Location.swift in Sources */,
 				63130C9F2B8E076100FCC11D /* LoginViewModel.swift in Sources */,
+				63130CC52B9107CA00FCC11D /* LoginStatusLoad.swift in Sources */,
 				63130CB32B8E07AB00FCC11D /* HeroAnnotation.swift in Sources */,
 				63130C902B8E073900FCC11D /* SplashViewController.swift in Sources */,
 			);
@@ -442,6 +448,7 @@
 				63130C812B8E066900FCC11D /* Hero.swift in Sources */,
 				63130CA02B8E076100FCC11D /* LoginViewModel.swift in Sources */,
 				63130CBC2B8E07CD00FCC11D /* HeroDetailViewModel.swift in Sources */,
+				63130CC62B9107CA00FCC11D /* LoginStatusLoad.swift in Sources */,
 				63130CA52B8E077B00FCC11D /* HeroesController.swift in Sources */,
 				63130CAD2B8E079A00FCC11D /* HeroDetailController.swift in Sources */,
 			);
@@ -464,6 +471,7 @@
 				63130C862B8E067900FCC11D /* Location.swift in Sources */,
 				63130C682B8E050800FCC11D /* Practica_IOS_AvanzadoUITestsLaunchTests.swift in Sources */,
 				63130CA12B8E076100FCC11D /* LoginViewModel.swift in Sources */,
+				63130CC72B9107CA00FCC11D /* LoginStatusLoad.swift in Sources */,
 				63130CB52B8E07AB00FCC11D /* HeroAnnotation.swift in Sources */,
 				63130C922B8E073900FCC11D /* SplashViewController.swift in Sources */,
 			);

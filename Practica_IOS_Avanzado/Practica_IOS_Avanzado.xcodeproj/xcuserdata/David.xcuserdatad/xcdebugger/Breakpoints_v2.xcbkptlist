@@ -7,47 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DDF25497-1351-4BB8-A2E5-0B9602E2C021"
+            uuid = "4DBAAA10-83F7-47DA-919D-0976243562B1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Practica_IOS_Avanzado/Data/ApiProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "getLocationsForHeroWith(id:completion:)"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "makeRequestfor(request:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "DDF25497-1351-4BB8-A2E5-0B9602E2C021 - dd0112b3ade5ba3f"
+                  uuid = "4DBAAA10-83F7-47DA-919D-0976243562B1 - e8552e7022cf1fb8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Practica_IOS_Avanzado.ApiProvider.getLocationsForHeroWith(id: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;Practica_IOS_Avanzado.Location&gt;, Practica_IOS_Avanzado.GokuAndFriendsError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Practica_IOS_Avanzado.ApiProvider.makeRequestfor(request: Foundation.URLRequest, completion: (Swift.Result&lt;Swift.Bool, Practica_IOS_Avanzado.KCDragonBallError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Practica_IOS_Avanzado"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/David/Desktop/Projects/Practica-IOS_Avanzado/Practica_IOS_Avanzado/Practica_IOS_Avanzado/Data/ApiProvider.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "112"
-                  endingLineNumber = "112"
-                  offsetFromSymbolStart = "592">
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "260">
                </Location>
                <Location
-                  uuid = "DDF25497-1351-4BB8-A2E5-0B9602E2C021 - d18ac6b823b76df1"
+                  uuid = "4DBAAA10-83F7-47DA-919D-0976243562B1 - e8552e7022cf1fb8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Practica_IOS_Avanzado.ApiProvider.getLocationsForHeroWith(id: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;Practica_IOS_Avanzado.Location&gt;, Practica_IOS_Avanzado.KCDragonBallError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Practica_IOS_Avanzado.ApiProvider.makeRequestfor(request: Foundation.URLRequest, completion: (Swift.Result&lt;Swift.Bool, Practica_IOS_Avanzado.KCDragonBallError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Practica_IOS_Avanzado"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/David/Desktop/Projects/Practica-IOS_Avanzado/Practica_IOS_Avanzado/Practica_IOS_Avanzado/Data/ApiProvider.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "112"
-                  endingLineNumber = "112"
-                  offsetFromSymbolStart = "592">
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "366">
                </Location>
             </Locations>
          </BreakpointContent>

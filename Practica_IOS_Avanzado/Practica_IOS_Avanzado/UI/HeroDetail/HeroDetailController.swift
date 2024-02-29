@@ -119,7 +119,7 @@ extension HeroDetailController: MKMapViewDelegate {
 		
 		// solo  queremos custom vire para las annotations del dheroe, la ubicación del usuario por ejemplo
 		// se mostrará con el punto azul por defecto
-		guard let heroAnnotation = annotation as? HeroAnnotation else {
+		guard let _ = annotation as? HeroAnnotation else {
 			return nil
 		}
 

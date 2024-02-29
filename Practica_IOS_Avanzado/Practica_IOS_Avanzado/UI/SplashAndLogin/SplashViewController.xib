@@ -18,25 +18,25 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Splash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLg-cc-Wo3">
-                    <rect key="frame" x="170.66666666666666" y="415.66666666666669" width="52" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo4" translatesAutoresizingMaskIntoConstraints="NO" id="LO9-KL-hyk">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemMintColor"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="lLg-cc-Wo3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="j1A-1b-Mlv"/>
-                <constraint firstItem="lLg-cc-Wo3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="x0c-Uh-2ST"/>
+                <constraint firstItem="LO9-KL-hyk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UXn-8J-qWi"/>
+                <constraint firstItem="LO9-KL-hyk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XXE-I7-SHQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LO9-KL-hyk" secondAttribute="trailing" id="qz3-Ih-Tq7"/>
+                <constraint firstAttribute="bottom" secondItem="LO9-KL-hyk" secondAttribute="bottom" id="rsS-0K-XW9"/>
             </constraints>
             <point key="canvasLocation" x="132" y="-12"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="fondo4" width="1116" height="1941"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

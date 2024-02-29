@@ -11,8 +11,12 @@ import UIKit
 
 class SplashViewController: UIViewController {
 	
+	// MARK: - Outlets
+	@IBOutlet weak var splashActivityIndicator: UIActivityIndicatorView!
+	
 	private var secureData: SecureDataProtocol
 	
+	// MARK: - Inits
 	init(secureData: SecureDataProtocol = SecureDataKeychain()) {
 		self.secureData = secureData
 		super.init(nibName: String(describing: SplashViewController.self), bundle: nil)
@@ -22,6 +26,7 @@ class SplashViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	// MARK: - Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
@@ -33,7 +38,7 @@ class SplashViewController: UIViewController {
 		
 		// Si no tenemos token mostramos el login , Heroes en otro caso
 		var destination: UIViewController
-		if let token = secureData.getToken() {
+		if let _ = secureData.getToken() {
 			destination = HeroesController()
 		} else {
 			destination = LoginController()
