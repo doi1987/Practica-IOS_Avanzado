@@ -7,49 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4DBAAA10-83F7-47DA-919D-0976243562B1"
+            uuid = "399A652B-FC3D-4784-9854-5FE6E9F66FA0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Practica_IOS_Avanzado/UI/SplashAndLogin/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "loginWith(email:password:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "28EA6D76-04FE-4191-907A-BEEE8DF2C625"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Practica_IOS_Avanzado/Data/ApiProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "makeRequestfor(request:completion:)"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "loginWith(email:password:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4DBAAA10-83F7-47DA-919D-0976243562B1 - e8552e7022cf1fb8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Practica_IOS_Avanzado.ApiProvider.makeRequestfor(request: Foundation.URLRequest, completion: (Swift.Result&lt;Swift.Bool, Practica_IOS_Avanzado.KCDragonBallError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Practica_IOS_Avanzado"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/David/Desktop/Projects/Practica-IOS_Avanzado/Practica_IOS_Avanzado/Practica_IOS_Avanzado/Data/ApiProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "135"
-                  endingLineNumber = "135"
-                  offsetFromSymbolStart = "260">
-               </Location>
-               <Location
-                  uuid = "4DBAAA10-83F7-47DA-919D-0976243562B1 - e8552e7022cf1fb8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Practica_IOS_Avanzado.ApiProvider.makeRequestfor(request: Foundation.URLRequest, completion: (Swift.Result&lt;Swift.Bool, Practica_IOS_Avanzado.KCDragonBallError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Practica_IOS_Avanzado"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/David/Desktop/Projects/Practica-IOS_Avanzado/Practica_IOS_Avanzado/Practica_IOS_Avanzado/Data/ApiProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "135"
-                  endingLineNumber = "135"
-                  offsetFromSymbolStart = "366">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

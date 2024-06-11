@@ -7,11 +7,19 @@
 
 import Foundation
 
+enum LoginState {
+	case loading
+	case success
+	case failed(_ error: Error)
+	case showErrorEmail(_ error: String?)
+	case showErrorPassword(_ error: String?)
+}
+
 final class LoginViewModel {
 	
 	private let apiProvider: ApiProvider
 	
-	var loginStateChanged: ((LoginStatusLoad) -> Void)?
+	var loginStateChanged: ((LoginState) -> Void)?
 	
 	init(apiProvider: ApiProvider = ApiProvider()) {
 		self.apiProvider = apiProvider
@@ -19,20 +27,21 @@ final class LoginViewModel {
 	
 	func loginWith(email: String, password: String) {
 		self.loginStateChanged?(.loading)
+		
 		apiProvider.loginWith(email: email, password: password) { [weak self] result in
 			switch result {
 			case .success(_):
 				DispatchQueue.main.async {
-					self?.loginStateChanged?(.loaded)
+					self?.loginStateChanged?(.success)
 				}
 			case .failure(let error):
-				var error = "Error"
-				self?.loginStateChanged?(.errorNetwork(error))
+				DispatchQueue.main.async {
+					self?.loginStateChanged?(.failed(error))
+				}
 			}
 		}
 	}
 	
-	// MARK: - Metodo login
 	func onLoginButton(email: String?, password: String?) {
 		loginStateChanged?(.loading)
 		

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginController: UIViewController {
+final class LoginController: UIViewController {
 	
 	// MARK: - Outlets
 	
@@ -16,13 +16,15 @@ class LoginController: UIViewController {
 	@IBOutlet weak var passwordTextField: UITextField!
 	@IBOutlet weak var errorPassword: UILabel!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-	
+	@IBOutlet weak var loginButton: UIButton!
 	
 	private let viewModel: LoginViewModel
+	//	private let storeDataProvider: StoreDataProviderProtocol
 	
 	// MARK: - Inits
-	init(viewModel: LoginViewModel = LoginViewModel()) {
+	init(viewModel: LoginViewModel = LoginViewModel()){//, storeDataProvider: StoreDataProviderProtocol) 
 		self.viewModel = viewModel
+		//		self.storeDataProvider = storeDataProvider
 		super.init(nibName: String(describing: LoginController.self), bundle: nil)
 	}
 	
@@ -35,12 +37,15 @@ class LoginController: UIViewController {
 		super.viewDidLoad()
 		// Ocultamos el navigation bar porque no queremos tener opción de navegar Back
 		navigationController?.isNavigationBarHidden = true
-		emailTextField.addTarget(self, action: #selector(validEmail(_:)), for: .editingChanged)
-		passwordTextField.addTarget(self, action: #selector(validPassword(_:)), for: .editingChanged)
+		addObservers()
+		setupView()
+	}
+	
+	func addObservers() {
 		viewModel.loginStateChanged = { [weak self] state in
 			//TODO: - Controlar que puede fallar el servicio (Se puede pasar un parámetro estado por ejemplo en loginStateChanged
 			switch state {
-			case .loaded:
+			case .success:
 				self?.activityIndicator.stopAnimating()
 				// Navegamos a Heroes Controller
 				DispatchQueue.main.async {
@@ -48,8 +53,9 @@ class LoginController: UIViewController {
 					let heroes = HeroesController()
 					self?.navigationController?.pushViewController(heroes, animated: true)
 				}
-			case .errorNetwork(_):
+			case .failed(_):
 				self?.activityIndicator.stopAnimating()
+				self?.showAlert()
 			case .loading:
 				self?.activityIndicator.startAnimating()
 			case .showErrorEmail(let error):
@@ -60,25 +66,75 @@ class LoginController: UIViewController {
 				self?.errorPassword.isHidden = (error == nil || error?.isEmpty == true) 
 			}
 		}
-	}		
+	}
 	
 	// MARK: - Actions
 	@IBAction func loginTapped(_ sender: Any) {
-		viewModel.loginWith(email: "davidortegaiglesias@gmail.com", password: "abcdef")
-		//		viewModel.loginWith(email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
+		guard let email = emailTextField.text,
+			  let password = passwordTextField.text else { return }
+		
+		viewModel.loginWith(email: email, password: password )
 	}
 	
+	@objc func validFields(_ textfield: UITextField) {
+		loginButton.isEnabled = isEnabled()
+		switch textfield.accessibilityIdentifier {
+		case TextFieldType.email.rawValue:
+			validEmail(textfield)
+		case TextFieldType.password.rawValue:
+			validPassword(textfield)
+		default: return
+		}
+	}
 	
-	
-	@objc func validEmail(_ sender: UITextField) {
+	func validEmail(_ sender: UITextField) {
 		guard let text = sender.text else { return }
 		
 		errorEmail.isHidden = viewModel.isValid(email: text)
 	}
 	
-	@objc func validPassword(_ sender: UITextField) {
+	func validPassword(_ sender: UITextField) {
 		guard let text = sender.text else { return }
 		
 		errorPassword.isHidden = viewModel.isValid(password: text)
 	}
+}
+
+private extension LoginController {
+	func setupView() {
+		emailTextField.accessibilityIdentifier = TextFieldType.email.rawValue
+		passwordTextField.accessibilityIdentifier = TextFieldType.password.rawValue
+		emailTextField.addTarget(self, action: #selector(validFields(_:)), for: .editingChanged)
+		passwordTextField.addTarget(self, action: #selector(validFields(_:)), for: .editingChanged)
+		
+		loginButton.backgroundColor = .systemBlue
+		loginButton.layer.cornerRadius = 8
+		
+		#if DEBUG
+		emailTextField.text = "davidortegaiglesias@gmail.com"
+		passwordTextField.text = "abcdef"
+		#endif
+	}
+	
+	func isEnabled() -> Bool {
+		guard let email = emailTextField.text,
+			  let password = passwordTextField.text else { return false }
+		
+		let enabled = !email.isEmpty && !password.isEmpty
+		loginButton.backgroundColor = enabled ? UIColor.systemBlue : UIColor.systemGray		
+		return enabled
+	}
+	
+	func showAlert() {
+		let alertController = UIAlertController(title: "Error", message: "El usuario o contraseña son incorrectos", preferredStyle: .alert)
+		let action = UIAlertAction(title: "OK", style: .default)
+		alertController.addAction(action)
+		
+		present(alertController, animated: true, completion: nil)
+	}
+}
+
+enum TextFieldType: String {
+	case email
+	case password
 }

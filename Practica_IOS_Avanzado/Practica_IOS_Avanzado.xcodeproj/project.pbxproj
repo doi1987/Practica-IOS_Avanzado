@@ -67,9 +67,27 @@
 		63130CBD2B8E07CD00FCC11D /* HeroDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CBA2B8E07CD00FCC11D /* HeroDetailViewModel.swift */; };
 		63130CC02B8E094200FCC11D /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63130CBF2B8E094200FCC11D /* KeychainSwift */; };
 		63130CC32B8E09CF00FCC11D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 63130CC22B8E09CF00FCC11D /* Kingfisher */; };
-		63130CC52B9107CA00FCC11D /* LoginStatusLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CC42B9107CA00FCC11D /* LoginStatusLoad.swift */; };
-		63130CC62B9107CA00FCC11D /* LoginStatusLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CC42B9107CA00FCC11D /* LoginStatusLoad.swift */; };
-		63130CC72B9107CA00FCC11D /* LoginStatusLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CC42B9107CA00FCC11D /* LoginStatusLoad.swift */; };
+		63130CCA2B911F0B00FCC11D /* HeroesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CC82B911F0B00FCC11D /* HeroesCollectionViewCell.swift */; };
+		63130CCB2B911F0B00FCC11D /* HeroesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CC82B911F0B00FCC11D /* HeroesCollectionViewCell.swift */; };
+		63130CCC2B911F0B00FCC11D /* HeroesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CC82B911F0B00FCC11D /* HeroesCollectionViewCell.swift */; };
+		63130CCD2B911F0B00FCC11D /* HeroesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63130CC92B911F0B00FCC11D /* HeroesCollectionViewCell.xib */; };
+		63130CCE2B911F0B00FCC11D /* HeroesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63130CC92B911F0B00FCC11D /* HeroesCollectionViewCell.xib */; };
+		63130CCF2B911F0B00FCC11D /* HeroesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63130CC92B911F0B00FCC11D /* HeroesCollectionViewCell.xib */; };
+		63130CD22B91F4FD00FCC11D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63130CD02B91F4FD00FCC11D /* Model.xcdatamodeld */; };
+		63130CD32B91F4FD00FCC11D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63130CD02B91F4FD00FCC11D /* Model.xcdatamodeld */; };
+		63130CD42B91F4FD00FCC11D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63130CD02B91F4FD00FCC11D /* Model.xcdatamodeld */; };
+		63130CD82B91FA7900FCC11D /* NSMHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CD62B91FA7900FCC11D /* NSMHero.swift */; };
+		63130CD92B91FA7900FCC11D /* NSMHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CD62B91FA7900FCC11D /* NSMHero.swift */; };
+		63130CDA2B91FA7900FCC11D /* NSMHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CD62B91FA7900FCC11D /* NSMHero.swift */; };
+		63130CE22B91FAE300FCC11D /* NSMTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CDE2B91FAE300FCC11D /* NSMTransformation.swift */; };
+		63130CE32B91FAE300FCC11D /* NSMTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CDE2B91FAE300FCC11D /* NSMTransformation.swift */; };
+		63130CE42B91FAE300FCC11D /* NSMTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CDE2B91FAE300FCC11D /* NSMTransformation.swift */; };
+		63130CE82B91FAE300FCC11D /* NSMLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CE02B91FAE300FCC11D /* NSMLocation.swift */; };
+		63130CE92B91FAE300FCC11D /* NSMLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CE02B91FAE300FCC11D /* NSMLocation.swift */; };
+		63130CEA2B91FAE300FCC11D /* NSMLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63130CE02B91FAE300FCC11D /* NSMLocation.swift */; };
+		63C3EB5D2B939D7F0052D13D /* StoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3EB5C2B939D7F0052D13D /* StoreDataProvider.swift */; };
+		63C3EB5E2B939D7F0052D13D /* StoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3EB5C2B939D7F0052D13D /* StoreDataProvider.swift */; };
+		63C3EB5F2B939D7F0052D13D /* StoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3EB5C2B939D7F0052D13D /* StoreDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +136,13 @@
 		63130CB22B8E07AB00FCC11D /* HeroAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAnnotation.swift; sourceTree = "<group>"; };
 		63130CB62B8E07B800FCC11D /* HeroAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAnnotationView.swift; sourceTree = "<group>"; };
 		63130CBA2B8E07CD00FCC11D /* HeroDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewModel.swift; sourceTree = "<group>"; };
-		63130CC42B9107CA00FCC11D /* LoginStatusLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatusLoad.swift; sourceTree = "<group>"; };
+		63130CC82B911F0B00FCC11D /* HeroesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesCollectionViewCell.swift; sourceTree = "<group>"; };
+		63130CC92B911F0B00FCC11D /* HeroesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesCollectionViewCell.xib; sourceTree = "<group>"; };
+		63130CD12B91F4FD00FCC11D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		63130CD62B91FA7900FCC11D /* NSMHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMHero.swift; sourceTree = "<group>"; };
+		63130CDE2B91FAE300FCC11D /* NSMTransformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMTransformation.swift; sourceTree = "<group>"; };
+		63130CE02B91FAE300FCC11D /* NSMLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMLocation.swift; sourceTree = "<group>"; };
+		63C3EB5C2B939D7F0052D13D /* StoreDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +226,7 @@
 		63130C742B8E060F00FCC11D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				63130CD52B91F97300FCC11D /* CoreData */,
 				63130C7A2B8E063E00FCC11D /* Model */,
 				63130C762B8E063900FCC11D /* ApiProvider.swift */,
 				63130C7B2B8E065B00FCC11D /* SecureDataKeychain.swift */,
@@ -225,7 +250,6 @@
 				63130C7F2B8E066900FCC11D /* Hero.swift */,
 				63130C832B8E067900FCC11D /* Location.swift */,
 				63130C872B8E068400FCC11D /* Transformation.swift */,
-				63130CC42B9107CA00FCC11D /* LoginStatusLoad.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +271,8 @@
 			children = (
 				63130CA22B8E077B00FCC11D /* HeroesController.swift */,
 				63130CA32B8E077B00FCC11D /* HeroesController.xib */,
+				63130CC82B911F0B00FCC11D /* HeroesCollectionViewCell.swift */,
+				63130CC92B911F0B00FCC11D /* HeroesCollectionViewCell.xib */,
 			);
 			path = Heroes;
 			sourceTree = "<group>";
@@ -261,6 +287,18 @@
 				63130CBA2B8E07CD00FCC11D /* HeroDetailViewModel.swift */,
 			);
 			path = HeroDetail;
+			sourceTree = "<group>";
+		};
+		63130CD52B91F97300FCC11D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				63130CDE2B91FAE300FCC11D /* NSMTransformation.swift */,
+				63130CE02B91FAE300FCC11D /* NSMLocation.swift */,
+				63130CD62B91FA7900FCC11D /* NSMHero.swift */,
+				63130CD02B91F4FD00FCC11D /* Model.xcdatamodeld */,
+				63C3EB5C2B939D7F0052D13D /* StoreDataProvider.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +415,7 @@
 			files = (
 				63130CAF2B8E079A00FCC11D /* HeroDetailController.xib in Resources */,
 				63130C512B8E050700FCC11D /* LaunchScreen.storyboard in Resources */,
+				63130CCD2B911F0B00FCC11D /* HeroesCollectionViewCell.xib in Resources */,
 				63130C9B2B8E075100FCC11D /* LoginController.xib in Resources */,
 				63130CA72B8E077B00FCC11D /* HeroesController.xib in Resources */,
 				63130C932B8E073900FCC11D /* SplashViewController.xib in Resources */,
@@ -390,6 +429,7 @@
 			files = (
 				63130C942B8E073900FCC11D /* SplashViewController.xib in Resources */,
 				63130C9C2B8E075100FCC11D /* LoginController.xib in Resources */,
+				63130CCE2B911F0B00FCC11D /* HeroesCollectionViewCell.xib in Resources */,
 				63130CB02B8E079A00FCC11D /* HeroDetailController.xib in Resources */,
 				63130CA82B8E077B00FCC11D /* HeroesController.xib in Resources */,
 			);
@@ -401,6 +441,7 @@
 			files = (
 				63130C952B8E073900FCC11D /* SplashViewController.xib in Resources */,
 				63130C9D2B8E075100FCC11D /* LoginController.xib in Resources */,
+				63130CCF2B911F0B00FCC11D /* HeroesCollectionViewCell.xib in Resources */,
 				63130CB12B8E079A00FCC11D /* HeroDetailController.xib in Resources */,
 				63130CA92B8E077B00FCC11D /* HeroesController.xib in Resources */,
 			);
@@ -413,21 +454,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63130CCA2B911F0B00FCC11D /* HeroesCollectionViewCell.swift in Sources */,
 				63130C772B8E063900FCC11D /* ApiProvider.swift in Sources */,
 				63130C452B8E050400FCC11D /* AppDelegate.swift in Sources */,
 				63130CAC2B8E079A00FCC11D /* HeroDetailController.swift in Sources */,
 				63130C7C2B8E065B00FCC11D /* SecureDataKeychain.swift in Sources */,
+				63130CD22B91F4FD00FCC11D /* Model.xcdatamodeld in Sources */,
+				63130CD82B91FA7900FCC11D /* NSMHero.swift in Sources */,
 				63130C472B8E050400FCC11D /* SceneDelegate.swift in Sources */,
 				63130CB72B8E07B800FCC11D /* HeroAnnotationView.swift in Sources */,
 				63130C982B8E075100FCC11D /* LoginController.swift in Sources */,
 				63130CA42B8E077B00FCC11D /* HeroesController.swift in Sources */,
 				63130C802B8E066900FCC11D /* Hero.swift in Sources */,
+				63130CE82B91FAE300FCC11D /* NSMLocation.swift in Sources */,
 				63130CBB2B8E07CD00FCC11D /* HeroDetailViewModel.swift in Sources */,
 				63130C882B8E068400FCC11D /* Transformation.swift in Sources */,
 				63130C842B8E067900FCC11D /* Location.swift in Sources */,
 				63130C9F2B8E076100FCC11D /* LoginViewModel.swift in Sources */,
-				63130CC52B9107CA00FCC11D /* LoginStatusLoad.swift in Sources */,
+				63130CE22B91FAE300FCC11D /* NSMTransformation.swift in Sources */,
 				63130CB32B8E07AB00FCC11D /* HeroAnnotation.swift in Sources */,
+				63C3EB5D2B939D7F0052D13D /* StoreDataProvider.swift in Sources */,
 				63130C902B8E073900FCC11D /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,19 +482,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C3EB5E2B939D7F0052D13D /* StoreDataProvider.swift in Sources */,
 				63130CB42B8E07AB00FCC11D /* HeroAnnotation.swift in Sources */,
 				63130C7D2B8E065B00FCC11D /* SecureDataKeychain.swift in Sources */,
 				63130C5C2B8E050800FCC11D /* Practica_IOS_AvanzadoTests.swift in Sources */,
 				63130C892B8E068400FCC11D /* Transformation.swift in Sources */,
 				63130C852B8E067900FCC11D /* Location.swift in Sources */,
 				63130CB82B8E07B800FCC11D /* HeroAnnotationView.swift in Sources */,
+				63130CCB2B911F0B00FCC11D /* HeroesCollectionViewCell.swift in Sources */,
 				63130C782B8E063900FCC11D /* ApiProvider.swift in Sources */,
+				63130CD32B91F4FD00FCC11D /* Model.xcdatamodeld in Sources */,
 				63130C992B8E075100FCC11D /* LoginController.swift in Sources */,
 				63130C912B8E073900FCC11D /* SplashViewController.swift in Sources */,
 				63130C812B8E066900FCC11D /* Hero.swift in Sources */,
+				63130CE32B91FAE300FCC11D /* NSMTransformation.swift in Sources */,
 				63130CA02B8E076100FCC11D /* LoginViewModel.swift in Sources */,
 				63130CBC2B8E07CD00FCC11D /* HeroDetailViewModel.swift in Sources */,
-				63130CC62B9107CA00FCC11D /* LoginStatusLoad.swift in Sources */,
+				63130CD92B91FA7900FCC11D /* NSMHero.swift in Sources */,
+				63130CE92B91FAE300FCC11D /* NSMLocation.swift in Sources */,
 				63130CA52B8E077B00FCC11D /* HeroesController.swift in Sources */,
 				63130CAD2B8E079A00FCC11D /* HeroDetailController.swift in Sources */,
 			);
@@ -458,21 +509,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63130CCC2B911F0B00FCC11D /* HeroesCollectionViewCell.swift in Sources */,
 				63130C8A2B8E068400FCC11D /* Transformation.swift in Sources */,
 				63130C822B8E066900FCC11D /* Hero.swift in Sources */,
 				63130CAE2B8E079A00FCC11D /* HeroDetailController.swift in Sources */,
 				63130C7E2B8E065B00FCC11D /* SecureDataKeychain.swift in Sources */,
+				63130CD42B91F4FD00FCC11D /* Model.xcdatamodeld in Sources */,
+				63130CDA2B91FA7900FCC11D /* NSMHero.swift in Sources */,
 				63130C792B8E063900FCC11D /* ApiProvider.swift in Sources */,
 				63130CB92B8E07B800FCC11D /* HeroAnnotationView.swift in Sources */,
 				63130C9A2B8E075100FCC11D /* LoginController.swift in Sources */,
 				63130CA62B8E077B00FCC11D /* HeroesController.swift in Sources */,
 				63130C662B8E050800FCC11D /* Practica_IOS_AvanzadoUITests.swift in Sources */,
+				63130CEA2B91FAE300FCC11D /* NSMLocation.swift in Sources */,
 				63130CBD2B8E07CD00FCC11D /* HeroDetailViewModel.swift in Sources */,
 				63130C862B8E067900FCC11D /* Location.swift in Sources */,
 				63130C682B8E050800FCC11D /* Practica_IOS_AvanzadoUITestsLaunchTests.swift in Sources */,
 				63130CA12B8E076100FCC11D /* LoginViewModel.swift in Sources */,
-				63130CC72B9107CA00FCC11D /* LoginStatusLoad.swift in Sources */,
+				63130CE42B91FAE300FCC11D /* NSMTransformation.swift in Sources */,
 				63130CB52B8E07AB00FCC11D /* HeroAnnotation.swift in Sources */,
+				63C3EB5F2B939D7F0052D13D /* StoreDataProvider.swift in Sources */,
 				63130C922B8E073900FCC11D /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -827,6 +883,19 @@
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		63130CD02B91F4FD00FCC11D /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63130CD12B91F4FD00FCC11D /* Model.xcdatamodel */,
+			);
+			currentVersion = 63130CD12B91F4FD00FCC11D /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 63130C392B8E050400FCC11D /* Project object */;
 }

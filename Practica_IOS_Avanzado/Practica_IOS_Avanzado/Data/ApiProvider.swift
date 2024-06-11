@@ -10,7 +10,9 @@ import Foundation
 // Custom errors de la app
 enum KCDragonBallError: Error {
 	case parsingData
-	
+	case unauthorized
+	case serverError
+	case noData
 }
 
 // Endpoints de la api
@@ -125,22 +127,27 @@ class ApiProvider {
 extension ApiProvider {
 	
 	func makeRequestfor(request: URLRequest, completion: @escaping (Result<Bool, KCDragonBallError>) -> Void) {
-		
 		session.dataTask(with: request) { data, response, error in
+			guard let response = response as? HTTPURLResponse else {
+				completion(.failure(.serverError))
+				return
+			}
+
+			guard response.statusCode != 401 else { 
+				completion(.failure(.unauthorized))
+				return
+			}
 			
-			//TODO: - Manage Server Error
+			guard let data = data else { 
+				completion(.failure(.noData))
+				return
+			}
 			
-			//TODO: - MAange Status Code error
-			
-			if let data {
-				if let token = String(data: data, encoding: .utf8) {
-					self.secureData.setToken(value: token)
-					completion(.success(true))
-				} else {
-					//TODO: - Manage PArsing Data Error passing error
-				}
+			if let token = String(data: data, encoding: .utf8) {
+				self.secureData.setToken(value: token)
+				completion(.success(true))
 			} else {
-				//TODO: - Manage No data received error
+				completion(.failure(.parsingData))
 			}
 		}.resume()
 	}
