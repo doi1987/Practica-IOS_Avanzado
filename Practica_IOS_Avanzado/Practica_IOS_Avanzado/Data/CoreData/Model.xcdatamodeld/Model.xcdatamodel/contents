@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="22G120" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="Hero" representedClassName="NSMHero" syncable="YES">
-        <attribute name="favorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="heroDescription" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="favorite" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="heroDescription" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
         <attribute name="photo" optional="YES" attributeType="String"/>
         <relationship name="locations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Location" inverseName="hero" inverseEntity="Location"/>
         <relationship name="transformations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transformation" inverseName="hero" inverseEntity="Transformation"/>
@@ -16,7 +16,7 @@
     </entity>
     <entity name="Location" representedClassName="NSMLocation" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
         <attribute name="latitude" optional="YES" attributeType="String"/>
         <attribute name="longitude" optional="YES" attributeType="String"/>
         <relationship name="hero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="locations" inverseEntity="Hero"/>
@@ -27,10 +27,10 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Transformation" representedClassName="NSMTransformation" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
         <attribute name="photo" optional="YES" attributeType="String"/>
-        <attribute name="transformationDescription" optional="YES" attributeType="String"/>
+        <attribute name="transformationDescription" attributeType="String"/>
         <relationship name="hero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hero" inverseName="transformations" inverseEntity="Hero"/>
         <uniquenessConstraints>
             <uniquenessConstraint>

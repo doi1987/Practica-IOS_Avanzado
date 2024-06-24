@@ -37,15 +37,13 @@ class SplashViewController: UIViewController {
 		
 		
 		// Si no tenemos token mostramos el login , Heroes en otro caso
-		var destination: UIViewController
+		var vc: UIViewController
 		if let _ = secureData.getToken() {
-			destination = HeroesController()
+			vc = HomeTableViewController()
 		} else {
-			destination = LoginController()
+			vc = LoginController()
 		}
-		navigationController?.pushViewController(destination, animated: true)
+		navigationController?.pushViewController(vc, animated: false)
 	}
-
-
 }
 

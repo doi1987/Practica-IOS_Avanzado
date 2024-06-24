@@ -9,13 +9,22 @@ import Foundation
 import CoreData
 
 enum StoreType {
-	
 	case disk
 	case inMemory
 }
 
-class StoreDataProvider {
-	
+protocol StoreDataProviderProtocol {
+	func insert(heroes: [HeroModel])
+	func fetchHeroes(filter: NSPredicate?, sorting:[NSSortDescriptor]?) -> [NSMHero]
+	func countHeroes() -> Int 
+	func insert(transformations: [TransformationModel])
+	func fetchTransformation() -> [NSMTransformation] 
+	func insert(locations: [Location])
+	func fetchLocation() -> [NSMLocation] 
+	func clearBBDD()
+}
+
+final class StoreDataProvider: StoreDataProviderProtocol {	
 	private static var managedObjectModel: NSManagedObjectModel = {
 		let bundle = Bundle(for: StoreDataProvider.self)
 		guard  let url = bundle.url(forResource: "Model", withExtension: "momd"),
@@ -50,28 +59,17 @@ class StoreDataProvider {
 			}
 		}
 	}
-	
-	func saveContext() {
-		if context.hasChanges {
-			do {
-			   try context.save()
-			} catch {
-				context.rollback()
-				debugPrint("Error saving changes in BBDD")
-			}
-		}
-	}
 }
 
 extension StoreDataProvider {
-	func insert(heroes: [Hero]) {
+	func insert(heroes: [HeroModel]) {
 		for hero in heroes {
 			let newHero = NSMHero(context: context)
 			newHero.id = hero.id
 			newHero.name = hero.name
 			newHero.heroDescription = hero.description
 			newHero.photo = hero.photo
-			newHero.favorite = hero.favorite ?? false
+			newHero.favorite = hero.favorite
 		}
 		saveContext()
 	}
@@ -101,14 +99,14 @@ extension StoreDataProvider {
 		}
 	}
 	
-	func insert(transformations: [Transformation]){
+	func insert(transformations: [TransformationModel]){
 		for transformation in transformations {
 			let newTransformation = NSMTransformation(context: context)
 			newTransformation.id = transformation.id
 			newTransformation.name = transformation.name
 			newTransformation.transformationDescription = transformation.description
 			newTransformation.photo = transformation.photo
-			let filter = NSPredicate(format: "id == %@", transformation.hero?.id ?? "")
+			let filter = NSPredicate(format: "id == %@", transformation.id)
 			let hero = fetchHeroes(filter: filter).first
 			newTransformation.hero = hero
 		}
@@ -131,7 +129,7 @@ extension StoreDataProvider {
 			newLocation.latitude = location.latitude
 			newLocation.longitude = location.longitude
 			newLocation.date = location.date
-			let filter = NSPredicate(format: "id == %@", location.hero?.id ?? "")
+			let filter = NSPredicate(format: "id == %@", location.hero.id)
 			let hero = fetchHeroes(filter: filter).first
 			newLocation.hero = hero
 		}
@@ -158,6 +156,19 @@ extension StoreDataProvider {
 			   try  context.execute(task)
 			} catch {
 				debugPrint("Error clearing BBDD")
+			}
+		}
+	}
+}
+
+private extension StoreDataProvider {
+	func saveContext() {
+		if context.hasChanges {
+			do {
+			   try context.save()
+			} catch {
+				context.rollback()
+				debugPrint("Error saving changes in BBDD")
 			}
 		}
 	}

@@ -15,9 +15,7 @@ protocol SecureDataProtocol {
 	func deleteToken()
 }
 
-
-class SecureDataKeychain: SecureDataProtocol {
-	
+final class SecureDataKeychain: SecureDataProtocol {
 	private let keychain = KeychainSwift()
 	private let keyToken = "keyToken"
 	
@@ -36,7 +34,7 @@ class SecureDataKeychain: SecureDataProtocol {
 
 // Implementación del SEcureDataProtocol con Userdefaults
 // Se puede usar para Testing por ejemplo
-class SecureDataUserDefaults: SecureDataProtocol {
+final class SecureDataUserDefaults: SecureDataProtocol {
 	
 	private let userDefaults = UserDefaults.standard
 	private let keyToken = "keyToken"

@@ -7,16 +7,8 @@
 
 import Foundation
 
-// Custom errors de la app
-enum KCDragonBallError: Error {
-	case parsingData
-	case unauthorized
-	case serverError
-	case noData
-}
-
 // Endpoints de la api
-enum KCDragonBallEndpoints {
+enum Endpoints {
 	case login
 	case heroes
 	case transformations
@@ -48,16 +40,16 @@ enum KCDragonBallEndpoints {
 struct RequestProvider {
 	let host = URL(string: "https://dragonball.keepcoding.education")!
 	
-	func requestFor(endpoint: KCDragonBallEndpoints) -> URLRequest {
+	func requestFor(endpoint: Endpoints) -> URLRequest {
 		let url = host.appendingPathComponent(endpoint.endpoint())
 		var request = URLRequest.init(url: url)
 		request.httpMethod = endpoint.httpMethod()
 		return request
 	}
 	
-	func requestFor(endPoint: KCDragonBallEndpoints, token:String, params: [String: Any]) -> URLRequest {
+	func requestFor(endpoint: Endpoints, token:String, params: [String: Any]) -> URLRequest {
 		
-		var request = self.requestFor(endpoint: endPoint)
+		var request = self.requestFor(endpoint: endpoint)
 		let jsonParameters = try? JSONSerialization.data(withJSONObject: params)
 		request.httpBody = jsonParameters
 		request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
@@ -67,10 +59,15 @@ struct RequestProvider {
 	}
 }
 
-
-
-class ApiProvider {
+protocol ApiProviderProtocol {
+	func loginWith(email: String, password: String, completion: @escaping (Result<String, NetworkError>) -> Void)
+	func getHeroesWith(name: String?, completion: @escaping (Result<[HeroModel], NetworkError>) -> Void)
+	func getLocationsForHeroWith(id: String,completion: @escaping (Result<[Location], NetworkError>) -> Void)
+	func getTransformationsForHeroWith(id: String,completion: @escaping (Result<[TransformationModel], NetworkError>) -> Void)
 	
+}
+
+class ApiProvider: ApiProviderProtocol {
 	private var session: URLSession
 	private var requestProvider: RequestProvider
 	private var secureData: SecureDataProtocol
@@ -89,9 +86,9 @@ class ApiProvider {
 	
 	
 	// Llamada al servicio login
-	func loginWith(email: String, password: String, completion: @escaping (Result<Bool, KCDragonBallError>) -> Void) {
+	func loginWith(email: String, password: String, completion: @escaping (Result<String, NetworkError>) -> Void) {
 		guard let loginData = String(format: "%@:%@", email, password).data(using: .utf8)?.base64EncodedString() else {
-			completion(.failure(.parsingData))
+			completion(.failure(.dataFormatting))
 			return
 		}
 		var request = requestProvider.requestFor(endpoint: .login)
@@ -99,42 +96,49 @@ class ApiProvider {
 		makeRequestfor(request: request, completion: completion)
 	}
 	
-	func getHeroesWith(name: String? = nil, completion: @escaping (Result<[Hero], KCDragonBallError>) -> Void) {
+	func getHeroesWith(name: String? = nil, completion: @escaping (Result<[HeroModel], NetworkError>) -> Void) {
+		guard let token = secureData.getToken() else {
+			completion(.failure(.tokenFormatError))
+			return
+		}
 		
-		//TODO: - MAnage error getting token
-		let token = secureData.getToken()!
-		let request = requestProvider.requestFor(endPoint: .heroes, token: token, params: ["name": name ?? ""])
+		let request = requestProvider.requestFor(endpoint: .heroes, token: token, params: ["name": name ?? ""])
 		makeDataRequestfor(request: request, completion: completion)
 	}
 	
 	func getLocationsForHeroWith(id: String,
-								 completion: @escaping (Result<[Location], KCDragonBallError>) -> Void) {
+								 completion: @escaping (Result<[Location], NetworkError>) -> Void) {
 		//TODO: - MAnage error getting token
 		let token = secureData.getToken()!
-		let request = requestProvider.requestFor(endPoint: .locations, token: token, params: ["id": id])
+		let request = requestProvider.requestFor(endpoint: .locations, token: token, params: ["id": id])
 		makeDataRequestfor(request: request, completion: completion)
 	}
 	
 	func getTransformationsForHeroWith(id: String,
-									   completion: @escaping (Result<[Transformation], KCDragonBallError>) -> Void) {
+									   completion: @escaping (Result<[TransformationModel], NetworkError>) -> Void) {
 		//TODO: - MAnage error getting token
 		let token = secureData.getToken()!
-		let request = requestProvider.requestFor(endPoint: .transformations, token: token, params: ["id": id])
+		let request = requestProvider.requestFor(endpoint: .transformations, token: token, params: ["id": id])
 		makeDataRequestfor(request: request, completion: completion)
 	}
 }
 
 extension ApiProvider {
 	
-	func makeRequestfor(request: URLRequest, completion: @escaping (Result<Bool, KCDragonBallError>) -> Void) {
+	func makeRequestfor(request: URLRequest, completion: @escaping (Result<String, NetworkError>) -> Void) {
 		session.dataTask(with: request) { data, response, error in
 			guard let response = response as? HTTPURLResponse else {
 				completion(.failure(.serverError))
 				return
 			}
+			
+			guard response.statusCode != 500 else { 
+				completion(.failure(.serverError))
+				return
+			}
 
 			guard response.statusCode != 401 else { 
-				completion(.failure(.unauthorized))
+					completion(.failure(.unauthorized))
 				return
 			}
 			
@@ -145,31 +149,45 @@ extension ApiProvider {
 			
 			if let token = String(data: data, encoding: .utf8) {
 				self.secureData.setToken(value: token)
-				completion(.success(true))
+				completion(.success(token))
 			} else {
-				completion(.failure(.parsingData))
+				completion(.failure(.decoding))
 			}
 		}.resume()
 	}
 	
-	func makeDataRequestfor<T: Decodable>(request: URLRequest, completion: @escaping (Result<[T], KCDragonBallError>) -> Void) {
+	func makeDataRequestfor<T: Decodable>(request: URLRequest, completion: @escaping (Result<[T], NetworkError>) -> Void) {
 		
 		session.dataTask(with: request) { data, response, error in
 			
-			//TODO: - Manage Server Error
-			
-			//TODO: - MAange Status Code error
-			
-			if let data {
-				do {
-					let dataReceived = try JSONDecoder().decode([T].self, from: data)
-					completion(.success(dataReceived))
-				} catch {
-					//TODO: - Manage PArsing Data Error passing error
-				}
-			} else {
-				//TODO: - Manage No data received error
+			guard let response = response as? HTTPURLResponse else {
+				completion(.failure(.serverError))
+				return
 			}
+			
+			guard response.statusCode != 500 else { 
+				completion(.failure(.serverError))
+				return
+			}
+
+			guard response.statusCode != 401 else { 
+					completion(.failure(.unauthorized))
+				return
+			}
+			
+			guard let data = data else { 
+				completion(.failure(.noData))
+				return
+			}
+			
+			
+			do {
+				let dataReceived = try JSONDecoder().decode([T].self, from: data)
+				completion(.success(dataReceived))
+			} catch {
+				completion(.failure(.decoding))
+			}
+			
 		}.resume()
 	}
 }

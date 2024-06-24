@@ -23,8 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		let mainWindow = UIWindow(windowScene: windowScene)
 		let splash = SplashViewController()
 		//NavigationController de la app
-		let navifation = UINavigationController(rootViewController: splash)
-		mainWindow.rootViewController = navifation
+		let navigation = UINavigationController(rootViewController: splash)
+		mainWindow.rootViewController = navigation
 		self.window = mainWindow
 		
 		self.window?.makeKeyAndVisible()

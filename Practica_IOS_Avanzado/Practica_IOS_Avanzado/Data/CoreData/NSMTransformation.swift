@@ -20,9 +20,9 @@ extension NSMTransformation {
 		return NSFetchRequest<NSMTransformation>(entityName: "Transformation")
 	}
 
-	@NSManaged public var id: String?
-	@NSManaged public var name: String?
-	@NSManaged public var transformationDescription: String?
+	@NSManaged public var id: String
+	@NSManaged public var name: String
+	@NSManaged public var transformationDescription: String
 	@NSManaged public var photo: String?
 	@NSManaged public var hero: NSMHero?
 

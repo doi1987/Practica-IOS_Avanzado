@@ -20,7 +20,7 @@ extension NSMLocation {
 		return NSFetchRequest<NSMLocation>(entityName: "Location")
 	}
 
-	@NSManaged public var id: String?
+	@NSManaged public var id: String
 	@NSManaged public var latitude: String?
 	@NSManaged public var longitude: String?
 	@NSManaged public var date: String?
@@ -28,6 +28,6 @@ extension NSMLocation {
 
 }
 
-extension NSMLocation : Identifiable {
+extension NSMLocation: Identifiable {
 
 }
